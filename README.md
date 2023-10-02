@@ -184,3 +184,74 @@ docker ps
   104  netstat -tulnp
 
 ```
+
+network :
+
+```
+ ifconfig
+   16  docker network ls
+   17  clear
+   18  docker inspect raman-web
+   19  docker network ls
+   20  docker inspect network 39ef4dce3348
+   21  clear
+   22  docker ps
+   23  docker ps -a
+   24  docker netstat -tulnp
+   25  docker netstat - tulnp
+   26  netstat -tulnp
+   27  clear
+   28  docker ps -a
+   29  docker run -dt --name raman-web2 -p 82:80 nginx
+   30  docker ps -a
+   31  docker rm -f raman-web2
+   32  clear
+   33  docker ps -a
+   34  docker run -dt --name raman-web2 -p 81:80 nginx
+   35  docker ps
+   36  docker inpect raman-web2
+   37  docker inspect raman-web2
+   38  clear
+   39  docker network ls
+   40  docker inspect network 668009a247a3
+   41  clear
+   42  docker rm -f `docker ps -aq`
+   43  docker ps -a
+   44  docker run -dt --name c1 --network host httpd
+   45  docker ps -a
+   46  netstat -tulnp
+   47  clear
+   48  docker run -dt --name c2 --network host nginx
+   49  docker ps
+   50  docker ps -a
+   51  docker logs 5f67477296ef
+   52  clear
+   53  docker ps
+   54  docker inspect c1
+   55  ifconfig
+   56  clear
+   57  docker ps
+   58  docker run -dt --name c3 --network none httpd
+   59  docker ps -a
+   60  clear
+   61  docker nework ls
+   62  docker network ls
+   63  docker network create --subnet=10.0.0.0/16 -d bridge raman-net
+   64  docker network ls
+   65  docker run -dt --name c4 --network raman-net nginx
+   66  docker ps
+   67  ifconfig
+   68  clear
+   69  docker ps
+   70  docker inpect c4
+   71  docker inspect c4
+   72  docker inspect raman-net
+   73  clear
+   74  docker ps -a
+   75  docker exec -it c4 /bin/bash
+   76  docker ps -a
+   77  docker start c2
+   78  clear
+   79  docker network --help
+
+```
