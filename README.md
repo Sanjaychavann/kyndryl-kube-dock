@@ -255,3 +255,83 @@ network :
    79  docker network --help
 
 ```
+volume mapping : 1st :
+
+```
+docker rm -f `docker ps -aq`
+   93  clear
+   94  docker ps
+   95  pwd
+   96  mkdir app
+   97  ls
+   98  cd app
+   99  ls
+  100  touch hostfile
+  101  ls
+  102  pwd
+  103  docker run -dit --name c1 -v /root/app:/data centos:7
+  104  docker ps
+  105  docker inspect c1 | grep -i volume
+  106  docker inspect c1
+  107  clear
+  108  docker ps
+  109  docker exec -it c1 ls /
+  110  docker exec -it c1 ls /data
+  111  docker exec -it c1 ls /bin/bash
+  112  docker exec -it c1 /bin/bash
+  113  docker ps -a
+  114  docker rm -f c1
+  115  pwd
+  116  ld
+  117  ls
+  118  clear
+  119  ls
+  120  clear
+
+
+```
+
+vol. mapping : 2nd :
+
+```
+
+
+
+  121  pwd
+  122  cd /var/lib/docker/
+  123  ls
+  124  docker images
+  125  cd image/
+  126  s
+  127  ls
+  128  cd overlay2/
+  129  ls
+  130  cat repositories.json
+  131  clear
+  132  cd ..
+  133  ls
+  134  cd ..
+  135  ls
+  136  cd volumes/
+  137  ls
+  138  clear
+  139  docker volume ls
+  140  docker volume create ramansdata
+  141  docker volume ls
+  142  ls
+  143  cd ramansdata/
+  144  ls
+  145  cd _data/
+  146  ls
+  147  pwd
+  148  clear
+  149  pwd
+  150  docker ps -a
+  151  docker run -dit --name c1 -v ramansdata:/app/data ubuntu
+  152  ls
+  153  docker ps
+  154  docker attach c1
+  155  pwd
+
+
+```
