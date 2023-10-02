@@ -146,3 +146,41 @@ sudo -i
 
 
 ```
+port mapping :
+
+```
+docker ps
+   73  clear
+   74  docker ps
+   75  clear
+   76  docker rm -f `docker ps -aq`
+   77  clear
+   78  docker ps
+   79  docker images
+   80  clear
+   81  docker run -dt --name raman-c1 --hostname httpd
+   82  docker run -dt --name raman-c1 --hostname webserver httpd
+   83  docker exec -it raman-c1 /bin/bash
+   84  docker ps
+   85  netstat -tulnp
+   86  clear
+   87  docker ps
+   88  docker inpect raman-c1
+   89  docker inspect raman-c1
+   90  clear
+   91  curl 172.17.0.2:80
+   92  clear
+   93  docker ps
+   94  curl 10.0.0.4:80
+   95  docker run -dt --name webserver --hostname web -p 81:80 httpd
+   96  docker ps
+   97  curl 10.0.0.4:80
+   98  curl 10.0.0.4:81
+   99  docker ps
+  100  curl localhost
+  101  curl localhost:81
+  102  curl 10.0.0.4:81
+  103  curl 10.0.0.5:81
+  104  netstat -tulnp
+
+```
