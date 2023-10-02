@@ -1,5 +1,44 @@
-docker commands :
+```
+================================================================
 
+
+docker cli : commands >> 
+
+docker daemon : service whch interacts with software itself
+
+docker engine
+
+
+----
+ setup done :
+
+ cat /etc/os-release
+    3  clear
+    4  sudo yum install -y yum-utils
+    5  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    6  sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    7  clear
+    8  docker ps
+    9  clear
+   10  systemctl status docker
+   11  systemctl star docker
+   12  systemctl start docker
+   13  systemctl status docker
+   14  clear
+   15  docker ps
+   16  clear
+   17  docker ps
+   18  ps -ef | grep -i docker
+   19  history
+
+
+----------------------------------------------
+
+
+```
+docker runime :
+
+```
 cntrl +p+q
 
 -i : interactiveness , -d : detach mode ,-t : terminal
@@ -104,3 +143,6 @@ sudo -i
    73  history
    74  docker pull ubuntu:22.04
    75  docker images
+
+
+```
