@@ -335,3 +335,41 @@ vol. mapping : 2nd :
 
 
 ```
+volume and port maping 2gether :
+
+```
+cd /root/
+  337  clear
+  338  cd /var/tmp
+  339  mkdir www
+  340  cd www/
+  341  ls
+  342  vi index.html
+  343  pwd
+  344  docker run -d -P --name ramanwebserver -v /var/tmp/www:/usr/share/nginx/html nginx:latest
+  345  docker ps
+  346  netstat -tulnp
+  347  clear
+  348  docker ps
+  349  curl 10.0.0.4:32768
+  350  ls
+  351  vi index.html
+  352  exit
+  353  docker ps
+  354  docker inpect ramanwebserver
+  355  docker inspect ramanwebserver
+  356  clear
+
+
+
+<HTML>
+<HEAD></HEAD>
+<BODY>
+<HR/>
+THIS IS A TEST PAGE CREATED BY RAMAN 
+<HR/>
+</BODY>
+</HTML>
+
+
+```
