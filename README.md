@@ -485,3 +485,75 @@ dockerfile  >> docker build>> image (artifact)  >> application as a conttainer
  1036  docker exec -it c1 /bin/bash
 
 ```
+
+
+Dockerfile method :
+
+```
+[root@ramanvm data]# cd /root/files/
+[root@ramanvm files]# ls
+Dockerfile1  Dockerfile2
+
+
+[root@ramanvm files]# cat Dockerfile1
+FROM centos:7
+RUN yum update -y
+RUN yum -y install httpd
+
+
+
+[root@ramanvm files]# cat Dockerfile2
+FROM centos:7
+MAINTAINER  Raman Khanna raman.khanna@TechLanders.com
+RUN mkdir /data
+RUN yum update -y
+RUN yum -y install httpd   php
+RUN echo " TechLanders Solutions Deals in DevOps and Cloud" > /var/www/html/index.html
+EXPOSE 80
+VOLUME  /data
+RUN echo "httpd" >> /root/.bashrc
+CMD ["/bin/bash"]
+
+
+
+
+
+
+pwd
+ 1072  ls
+ 1073  vi Dockerfile1
+ 1074  vi Dockerfile2
+ 1075  clear
+ 1076  ls
+ 1077  cat Dockerfile2
+ 1078  docker images
+ 1079  docker build -t ramancustomimage4 -f Dockerfile2 .
+ 1080  docker images
+ 1081  clear
+ 1082  docker image history ramancustomimage4
+ 1083  clear
+ 1084  docker images
+ 1085  docker ps
+ 1086  cat Dockerfile2
+ 1087  docker run -dt --name c2 -v "
+ 1088  docker volume ls
+ 1089  ls
+ 1090  ls /
+ 1091  cd data
+ 1092  cd /data
+ 1093  ls
+ 1094  clear
+ 1095  cat Dockerfile2
+ 1096  cat /root/files/Dockerfile2
+ 1097  docker run -dt --name c2 -v /data:/data -p 8080:80 ramancustomimage4
+ 1098  docker ps
+ 1099  docker inspect c2
+ 1100  ls
+ 1101  docker ps
+ 1102  docker exec -it c2 /bin/bash
+ 1103  ls
+ 1104  cat /root/files/Dockerfile2
+ 1105  clear
+ 1106  history
+
+```
