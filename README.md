@@ -604,3 +604,37 @@ CMD ["httpd","-D","FOREGROUND"]
 
 
 ```
+
+
+dockerhub :
+
+```
+
+created dockerhub account :
+
+dockerid , password 
+
+created repo
+
+logged in our dockerhub acc
+
+taggd he image as per repo
+
+
+
+
+  docker push ramancustomimage2:latest
+ 1143  docker login
+ 1144  docker push ramancustomimage2:latest
+ 1145  docker tag 920cbe5efd7d ramann123/kyndryl-repo:ramansimage
+ 1146  docker images
+ 1147  clear
+ 1148  docker images | grep raman
+ 1149  docker push ramann123/kyndryl-repo:ramansimage
+ 1150  docker tag ramancustomimage4:latest ramann123/kyndryl-repo:ramansimage2
+ 1151  docker images | grep raman
+ 1152  docker push ramann123/kyndryl-repo:ramansimage2
+ 1153  docker images
+ 1154  docker push ramann123/kyndryl-repo:tagname
+
+```
