@@ -415,6 +415,33 @@ resource limitaion :
 custom image : 1st method commit :
 
 ```
+custom images : httpd is already , updated 
+
+commit method : 
+
+container (nothin) >> update >> commit in the form my custom image (httpd is already , updated) >>> reuse that custom image to create new containers
+
+
+
+
+dockerfile  >> docker build>> image (artifact)  >> application as a conttainer
+
+
+
+[root@56daa62c2ab9 /]# history
+    1  rpm -qa | grep -i httpd
+    2  ls
+    3  yum update -y
+    4  yum install httpd -y
+    5  rpm -qa | grep -i httpd
+    6  history
+
+
+
+
+
+
+
  docker rm -f `docker ps -aq`
   997  docker images
   998  docker rmi -f `docker images`
