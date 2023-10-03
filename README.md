@@ -412,3 +412,49 @@ resource limitaion :
   989  docker system df
 
 ```
+custom image : 1st method commit :
+
+```
+ docker rm -f `docker ps -aq`
+  997  docker images
+  998  docker rmi -f `docker images`
+  999  docker images
+ 1000  clear
+ 1001  docker ps
+ 1002  docker images
+ 1003  docker run -dt --name c1 --image centos:7
+ 1004  docker run -dt --name c1 centos:7
+ 1005  docker ps
+ 1006  clear
+ 1007  docker ps
+ 1008  docker images
+ 1009  docker exec -it c1 which httpd
+ 1010  docker exec -it c1 /bin/bash
+ 1011  docker ps -a
+ 1012  docker images
+ 1013  docker ps
+ 1014  docker commit -m "added httpd and updated base image" -a "raman khanna" c1 ramancustomimage1
+ 1015  docker images
+ 1016  docker image history
+ 1017  docker image history ramancustomimage1
+ 1018  clear
+ 1019  docker images
+ 1020  docker rm -f `docker ps -aq`
+ 1021  docker images
+ 1022  docker ps
+ 1023  docker ps -a
+ 1024  docker rmi -f redis
+ 1025  docker rmi -f centos:7
+ 1026  clear
+ 1027  docker ps -a
+ 1028  docker images
+ 1029  docker run -dt --name c1 -P ramancustomimage1
+ 1030  docker ps
+ 1031  docker rm -f c1
+ 1032  clear
+ 1033  docker run -dt --name c1 ramancustomimage1
+ 1034  docker ps
+ 1035  docker images
+ 1036  docker exec -it c1 /bin/bash
+
+```
