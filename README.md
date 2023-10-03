@@ -373,3 +373,42 @@ THIS IS A TEST PAGE CREATED BY RAMAN 
 
 
 ```
+resource limitaion :
+
+```
+ docker start rbweb
+  957  docker ps
+  958  docker stats
+  959  clear
+  960  docker rm -f `docker ps -aq`
+  961  clear
+  962  docker run -dit --name c1 -m 200M redis
+  963  docker ps
+  964  docker stats
+  965* docker run -dt --name c2 --cpus 0.2 -m 100M cadd
+  966* docker stats |
+  967  docker inspect c2
+  968  docker inspect c2 | grep nano
+  969  docker inspect c2 | grep -i nano
+  970  clear
+  971  docker top c2
+  972  clear
+  973  docker system df
+  974  docker ps
+  975  docker images
+  976  clear
+  977  docker system prune
+  978  docker images
+  979  docker ps -a
+  980  docker system prune -a
+  981  clear
+  982  docker images
+  983  docker ps
+  984  docker ps -a
+  985  docker nework ls
+  986  docker network ls
+  987  docker volume ls
+  988  clear
+  989  docker system df
+
+```
