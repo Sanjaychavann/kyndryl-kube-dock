@@ -557,3 +557,50 @@ pwd
  1106  history
 
 ```
+
+docker file copy instructions :
+
+```
+[root@ramanvm files]# cat index.html
+hello people !!!
+
+
+[root@ramanvm files]# cat Dockerfile3
+FROM centos:7
+RUN yum update -y
+RUN yum install -y httpd
+COPY ./index.html /var/www/html/index.html
+EXPOSE 80
+WORKDIR /var/www/html
+CMD ["httpd","-D","FOREGROUND"]
+
+
+
+
+
+
+ ls
+ 1113  vi Dockerfile3
+ 1114  ls
+ 1115  vi Dockerfile
+ 1116  cat Dockerfile3
+ 1117  clear
+ 1118  cat Dockerfile
+ 1119  cat Dockerfile3
+ 1120  docker images
+ 1121  docker build -t ramancustomimage5 -f Dockerfile3 .
+ 1122  vi index.html
+ 1123  ls
+ 1124  vi Dockerfile3
+ 1125  docker build -t ramancustomimage5 -f Dockerfile3 .
+ 1126  docker images
+ 1127  docker ps
+ 1128  docker run -dt --name c3 -P ramancustomimage5
+ 1129  docker ps
+ 1130  clear
+ 1131  vi index.html
+ 1132  cat index.html
+ 1133  cat Dockerfile3
+
+
+```
