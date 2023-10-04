@@ -745,3 +745,29 @@ docker images
  1079  cd workspace/
 
 ```
+
+polling :
+
+```
+
+ git clone https://github.com/ramannkhanna2/Devops-Maven-Docker.git
+  503  ls
+  504  cd Devops-Maven-Docker/
+  505  ls
+  506  cd src
+  507  ls
+  508  cd main
+  509  ls
+  510  cd java
+  511  ls
+  512  cd webapp
+  513  ls
+  514  vi LoginServlet.java
+  515  clear
+  516  git status
+  517  git add .
+  518  git commit -m "updated src code"
+  519  git status
+  520  git push origin master
+
+```
