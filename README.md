@@ -638,3 +638,110 @@ taggd he image as per repo
  1154  docker push ramann123/kyndryl-repo:tagname
 
 ```
+
+jenkins pipeline :
+```
+
+
+workflow : tasks (jenkins)
+
+
+jenkins : source code (github),git >>> build (maven) d >> arifacg .war file >> dockerfile >> custom image >> container
+
+
+raman full access
+rakesh write 
+ramesh read
+
+
+ jenkins : master /slave
+
+
+
+
+
+
+docker images
+  999  clear
+ 1000  cd /var/lib/
+ 1001  ls
+ 1002  cd jenkins
+ 1003  ls
+ 1004  cd workspace
+ 1005  ls
+ 1006  cd test
+ 1007  ls
+ 1008  cd ..
+ 1009  ls
+ 1010  cd ..
+ 1011  ls
+ 1012  cd ..
+ 1013  ls
+ 1014  ls -lr
+ 1015  clear
+ 1016  systemctl status jenkins
+ 1017  vi /usr/lib/systemd/system/jenkins.service
+ 1018  cat /etc/passwd
+ 1019  clear
+ 1020  vi /usr/lib/systemd/system/jenkins.service
+ 1021  sysemcttl daemon-reload
+ 1022  sysemctl daemon-reload
+ 1023  systemctl daemon-reload
+ 1024  systemctl restart jenkins
+ 1025  cd /root/
+ 1026  ls
+ 1027  yum install git -y
+ 1028  clear
+ 1029  java -version
+ 1030  clear
+ 1031  mvn
+ 1032  clear
+ 1033  wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+ 1034  ls
+ 1035  tar -xvzf apache-maven-3.9.4-bin.tar.gz
+ 1036  ls
+ 1037  cd apache-maven-3.9.4
+ 1038  ls
+ 1039  cd bin/
+ 1040  ls
+ 1041  ./mvn
+ 1042  mvn
+ 1043  clear
+ 1044  ls
+ 1045  cd /root/
+ 1046  ls
+ 1047  ls /usr/bin | grep ls
+ 1048  ls /usr/bin | grep cat
+ 1049  clear
+ 1050  ln -s /root/apache-maven-3.9.4/bin/mvn  /usr/bin/
+ 1051  ls -ltr /usr/bin | grep mvn
+ 1052  pwd
+ 1053  mvn
+ 1054  clear
+ 1055  mvn --version
+ 1056  docker ps
+ 1057  docker run -dt --name ramanapp ubuntu
+ 1058  docker ps
+ 1059  clear
+ 1060  cd /var/lib/jenkins/
+ 1061  ls
+ 1062  cd workspace/
+ 1063  ls
+ 1064  cd project-kyndryl/
+ 1065  ls
+ 1066  cd target/
+ 1067  ls
+ 1068  docker images
+ 1069  docker history image 0def9942a52a
+ 1070  docker image history 0def9942a52a
+ 1071  clear
+ 1072  docker ps
+ 1073  cd ..
+ 1074  ls
+ 1075  cd ..
+ 1076  ls
+ 1077  cd ..
+ 1078  ls
+ 1079  cd workspace/
+
+```
