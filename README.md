@@ -922,3 +922,54 @@ k delete pods --all
 
 ```
 
+multipod :
+
+```
+k delete pods --all
+  115  k get pods -A
+  116  clear
+  117  k get pods
+  118  ls
+  119  k create -f pod.yaml
+  120  k get pods
+  121  k get pods -A
+  122  k delete pod sanjayapp -n sanjay
+  123  k get pods -A
+  124  k get pods -n rb
+  125  k logs rbmulticon
+  126  k logs rbmulticon -n rb
+  127  k logs rbmulticon -c rbcon1 -n rb
+  128  k logs rbmulticon -c rbcon2 -n rb
+
+
+
+
+
+
+
+root@raman-kube-master:~# cat pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos
+spec:
+  containers:
+  - name: centos
+    image: centos:7
+    tty: true
+    command: ["/bin/bash"]
+
+
+
+```
