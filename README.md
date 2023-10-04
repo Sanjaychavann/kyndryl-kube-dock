@@ -822,5 +822,103 @@ KUBERNETES :
 
 ```
 
+pods runtime :
 
+```
+
+
+root@raman-kube-master:~# cat pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+root@raman-kube-master:~# cat multicon.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicon
+spec:
+  containers:
+  - name: con1
+    image: httpd
+    ports:
+    - containerPort: 80
+  - name: con2
+    image: redis
+    ports:
+    - containerPort: 6379
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+k delete pods --all
+   58  clear
+   59  k run -it centos --image centos:7 -- /bin/bash
+   60  clear
+   61  k get pods
+   62  k delete ns raman
+   63  clear
+   64  ls
+   65  k get pods
+   66  vi pod.yaml
+   67  k api-resources
+   68  clear
+   69  ls
+   70  vi pod.yaml
+   71  k create -f pod.yaml
+   72  k get pods
+   73  k get ns
+   74  k create ns raman
+   75  clear
+   76  k get ns
+   77  k create -f pod.yaml -n raman
+   78  k get pods -n raman
+   79  k get pods
+   80  k get pods -o wide
+   81  clear
+   82  k get pods -A
+   83  clear
+   84  cat pod.yaml
+   85  clear
+   86  k get pods
+   87  k delete pods --all
+   88  k get pods
+   89  ls
+   90  k create -f pod.yaml
+   91  k get pods
+   92  clear
+   93  k get pods
+   94  k exec -it nginx -- /bin/bash
+   95  clear
+   96  k get pods
+   97  clear
+   98  cat pod.yaml
+   99  vi multicon.yaml
+  100  k ge pods
+  101  k get pods
+  102  clear
+  103  k create -f multicon.yaml
+  104  k get pods
+  105  k get pods -o wide
+  106  k exec -it multicon -c con1 -- /bin/bash
+  107  k exec -it multicon -c con2 -- /bin/bash
+
+
+```
 
