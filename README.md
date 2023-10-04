@@ -771,3 +771,56 @@ polling :
   520  git push origin master
 
 ```
+
+KUBERNETES :
+
+```
+
+
+ alias k=kubectl
+   12  k get nodes
+   13  k get pods
+   14  k get pods -A
+   15  k get pods -A -o wide
+   16  clear
+   17  k get pods -A -o wide | grep master
+   18  docker ps
+   19  clear
+   20  k get pods -A -o wide | grep master
+   21  k get pods -A -o wide | grep worker1
+   22  k get pods -A -o wide | grep worker2
+   23  k get pods
+   24  clear
+   25  k get nodes
+   26  k get pods
+   27  k get pods -n kube-system
+   28  k get ns
+   29  clear
+   30  k get pods
+   31  k run ramanapp --image httpd
+   32  k get pods
+   33  k get pods -A
+   34  clear
+   35  k get pods
+   36  k get pods -o wide
+   37  k describe pod ramanapp
+   38  clear
+   39  k get pods
+   40  k create ns raman
+   41  k get ns
+   42  k get pods -n raman
+   43  clear
+   44  k delete pod ramanapp
+   45  clear
+   46  k get pods -A
+   47  clear
+   48  k run ramanapp1 --image httpd -n raman
+   49  k get pods
+   50  k get pods -n raman
+   51  k get pods -o wide -n raman
+
+
+```
+
+
+
