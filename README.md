@@ -1009,5 +1009,125 @@ k get pods -A | wc -l
 
 ```
 
+labels-selector :
+```
 
 
+root@raman-kube-master:~# cat rdeploy.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: rk
+  template:
+    metadata:
+      labels:
+        app: rk
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        env: dev
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  labels:
+    app: httpd
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: rk1
+  template:
+    metadata:
+      labels:
+        app: rk1
+    spec:
+      containers:
+      - name: httpd
+        image: httpd
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        env: prod
+
+
+
+
+
+
+ k get pods
+  585  clear
+  586  k describe pod | grep -i label
+  587  k describe deploy | grep -i label
+  588  k describe nodes | grep -i label
+  589  clear
+  590  k describe rs | grep -i selector
+  591  k describe pod | grep -i label
+  592  k describe pod | grep -i selector
+  593  cleacr
+  594  clear
+  595  k get pods --selector app=dep1
+  596  clear
+  597  ls
+  598  vi rdeploy.yml
+  599  k api-resources
+  600  clear
+  601  vi rdeploy.y
+  602  vi rdeploy.yml
+  603  k get deploy --selector=app=dep1
+  604  vi rdeploy.yml
+  605  k delete pods --all
+  606  clear
+  607  k get pods
+  608  k delete deploy --all
+  609  clear
+  610  k get pods
+  611  clear
+  612  k get pods
+  613  k create -f rdeploy.yml -n raman
+  614  k get pods -n raman
+  615  k get pods -o wide
+  616  k delete deploy -n raman
+  617  k delete deploy nginx-deployment -n raman
+  618  clear
+  619  k delete deploy
+  620  k create -f rdeploy.yml
+  621  clear
+  622  k get pods -o wide
+  623  k describe nodes
+  624  clear
+  625  k label node raman-kube-worker1 "env=prod"
+  626  k describe nodes
+  627  clear
+  628  k label node raman-kube-worker2 "env=dev"
+  629  vi rdeploy.yml
+  630  k apply -f rdeploy.yml
+  631  k get pods
+  632  k get pods -o wide
+  633  vi rdeploy.yml
+  634  k apply -f rdeploy.yml
+  635  k get pods -o wide --watch
+  636  k get pods -o wide
+  637  clear
+  638  vi rdeploy.yml
+  639  k apply -f rdeploy.yml
+  640  k get deploy
+  641  k get pods
+  642  k get pods -o wide
+  643  clear
+  644  cat rdeploy.yml
+
+
+```
