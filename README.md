@@ -1131,3 +1131,109 @@ spec:
 
 
 ```
+
+hpa :
+
+
+```
+
+alias k=kubectl
+ 1015  k delete -f .
+ 1016  k get all
+ 1017  clear
+ 1018  k op nodes
+ 1019  k top nodes
+ 1020  alias k=kubectl
+ 1021  k top nodes
+ 1022  clear
+ 1023  ls
+ 1024  k get ns
+ 1025  k delete ns kubernetes-dashboard
+ 1026  k get pods
+ 1027  clear
+ 1028  k op nodes
+ 1029  k top nodes
+ 1030  clear
+ 1031  k describe node kube-maser
+ 1032  k describe node kube-master
+ 1033  clear
+ 1034  k get nodes
+ 1035  k get pods
+ 1036  k delete pods --all
+ 1037  clear
+ 1038  ls
+ 1039  cd k8s_metrics_server/
+ 1040  ls
+ 1041  cd deploy/
+ 1042  ls
+ 1043  clear
+ 1044  k get pods -A
+ 1045  k get hpa
+ 1046  k delete pod hpa
+ 1047  k delete pod hpa centos
+ 1048  k delete hpa centos
+ 1049  clear
+ 1050  k get pods
+ 1051  ls
+ 1052  cd /
+ 1053  cd root
+ 1054  pwd
+ 1055  vi deplloy.yml
+ 1056  k create -f deplloy.yml
+ 1057  k get pods
+ 1058  k autoscale deploy centos-deployment --cpu-percent 60 --min=1 --max=5
+ 1059  k top nodes
+ 1060  k top pods
+ 1061  k top pods -A
+ 1062  clear
+ 1063  k get pods -A
+ 1064  k top nodes
+ 1065  k top pods
+ 1066  k get hpa
+ 1067  clear
+ 1068  k get hpa --watch
+ 1069  k top pods
+ 1070  clear
+ 1071  k delete deploy --all
+
+
+
+
+
+k get pods
+ 1025  k exec -it centos-deployment-c57b4c5bb-xm9mv -- /bin/bash
+
+
+
+root@kube-master:~# cat deplloy.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centos-deployment
+  labels:
+    app: centos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rk
+  template:
+    metadata:
+      labels:
+        app: rk
+    spec:
+      containers:
+      - name: centos
+        image: centos:7
+        command: ["/bin/bash"]
+        tty: true
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+
+```
+
