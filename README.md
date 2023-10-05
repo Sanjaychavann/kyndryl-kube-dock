@@ -973,3 +973,41 @@ spec:
 
 
 ```
+
+deployment :
+
+```
+
+k get pods -A | wc -l
+  556  clear
+  557  k get pods -n raman
+  558  k delete pod nginx -n raman
+  559  clear
+  560  k get pods
+  561  clear
+  562  k create deploy dep1 --image httpd --replicas 7
+  563  k get pods
+  564  clear
+  565  k get all
+  566  k delete pod dep1-849f46f8bd-xr5gc
+  567  k get all
+  568  clear
+  569  k describe deplo dep1
+  570  k describe deploy dep1
+  571  clear
+  572  k describe rs
+  573  clear
+  574  k ge pods
+  575  k get pods
+  576  k scale deploy dep1 --replicas 15
+  577  k get pods
+  578  k scale deploy dep1 --replicas 1
+  579  k get pods
+  580  clear
+  581  k get pods
+
+
+```
+
+
+
