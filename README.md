@@ -1290,3 +1290,144 @@ service :
   911  k get pods -o wide
 
 ```
+
+
+deplomnt techniques :
+```
+root@raman-kube-master:~/raman# cat rdeploy.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  labels:
+    app: rk
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: rk
+  template:
+    metadata:
+      labels:
+        app: rk
+    spec:
+      containers:
+      - name: httpd
+        image: httpd
+        ports:
+        - containerPort: 80
+root@raman-kube-master:~/raman# cat rdeploy2.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: rk
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: rk
+  template:
+    metadata:
+      labels:
+        app: rk
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+root@raman-kube-master:~/raman# cat service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: raman-service
+spec:
+  type: NodePort
+  selector:
+    app: rk
+  ports:
+      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 80
+      targetPort: 80
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30007
+
+
+
+
+
+
+
+
+
+k get pods
+  915  k get svc
+  916  clear
+  917  ls
+  918  k get all
+  919  k delete deploy --all
+  920  k delete svc --all
+  921  clear
+  922  k get all
+  923  clear
+  924  ls
+  925  vi rdeploy.yml
+  926  cat rdeploy.yml
+  927  vi rdeploy2.yml
+  928  clear
+  929  k create -f rdeploy.yml
+  930  k get pods
+  931  vi service.yml
+  932  k describe pods | grep -i label
+  933  vi service.yml
+  934  k create -f service.yml
+  935  k get pods
+  936  k get pods -o wide
+  937  k describe svc raman-service
+  938  clear
+  939  k create -f  rdeploy2.yml
+  940  k get deploy
+  941  k get svc
+  942  vi service.yml
+  943  cat rdeploy2.yml
+  944  clear
+  945  vi service.yml
+  946  k apply -f service.yml
+  947  clear
+  948  k get svc
+  949  k get deploy
+  950  k scale deploy httpd-deployment --replicas 10
+  951  k scale deploy httpd-deployment --replicas 0
+  952  clear
+  953  k get svc
+  954  k get deploy
+  955  k get pods
+  956  k scale deploy httpd-deployment --replicas 10
+  957  k scale deploy nginx-deployment --replicas 0
+  958  k get pods
+  959  vi rdeploy.yml
+  960  vi rdeploy2.yml
+  961  k apply -f rdeploy2.yml
+  962  vi rdeploy2.yml
+  963  k delete deploy --all
+  964  clear
+  965  vi rdeploy.yml
+  966  vi rdeploy2.yml
+  967  k create -f rdeploy.yml
+  968  k create -f rdeploy2.yml
+  969  vi service.yml
+  970  k apply -f service.yml
+  971  k get pods
+  972  k scale deploy nginx-deployment --replicas 5
+  973  k scale deploy httpd-deployment --replicas 5
+  974  k get pods
+  975  curl 10.0.0.7
+  976  10.0.0.7
+  977  curl 10.0.0.7:30007
+  978  k scale deploy httpd-deployment --replicas 2
+  979  k scale deploy nginx-deployment --replicas 8
+
+```
