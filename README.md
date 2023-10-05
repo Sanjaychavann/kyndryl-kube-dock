@@ -1237,3 +1237,56 @@ spec:
 
 ```
 
+service :
+
+```
+
+ k delete hpa --all
+  866  clear
+  867  k get all
+  868  clear
+  869  k run c1 --image httpd
+  870  k get pods
+  871  k get pods -o wide
+  872  k get svc
+  873  clear
+  874  k expose pod c1 --name extsvc --type NodePort --target-port 80 --port 80
+  875  k get all
+  876  k describe svc extsvc
+  877  k get pods -o wide
+  878  k describe pod | grep label
+  879  k describe pod | grep -i label
+  880  clear
+  881  k get pods -A
+  882  k get pods -A -o wide
+  883  clear
+  884  k get pods -A -o wide
+  885  k get pods -o wide
+  886  clear
+  887  k create deploy dep1 --image nginx --replicas 2
+  888  k get pods -o wide
+  889  k expose deploy dep1 --name extsvcdep --type NodePort --target-port 80 --port 80
+  890  k describe svc extsvcdep
+  891  k create deploy dep2 --image redis --replicas 2
+  892  clear
+  893  k get deploy
+  894  k get svc
+  895  k expose deploy dep2 --name intsvc --type ClusterIP --target-port 80 --port 80
+  896  k get svc
+  897  k describe svc intsvc
+  898  k get pods -o wide
+  899  k delete svc intsvc
+  900  k expose deploy dep2 --name intsvc --type ClusterIP --target-port 6379 --port 6379
+  901  clear
+  902  k get pods -o wide
+  903  k get svc
+  904  k describe svc intsvc
+  905  clear
+  906  k create deploy dep3 --image redis --replicas 2
+  907  k expose deploy dep3 --name intsvc1 --type ClusterIP --target-port 6379 --port 6379
+  908  k describe insvc1
+  909  k describe intsvc1
+  910  k describe svc intsvc1
+  911  k get pods -o wide
+
+```
