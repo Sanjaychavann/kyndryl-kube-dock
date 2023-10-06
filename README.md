@@ -1431,3 +1431,102 @@ k get pods
   979  k scale deploy nginx-deployment --replicas 8
 
 ```
+
+
+
+rollout :
+
+```
+
+
+v1 : nginx 1.14.1 : rollin update : nginx-5cf69c89dc
+v2 : nginx 1.14.2 : recreate stratergy : nginx-6ff8b45b98
+v3 : nginx latest : rollin update :nginx-85d84cc48c
+
+
+
+
+
+root@raman-kube-master:~/raman# cat rdeploy.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 10
+  #  strategy:
+  # type: Recreate
+  selector:
+    matchLabels:
+      app: rk
+  template:
+    metadata:
+      labels:
+        app: rk
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+
+
+
+k delete deploy --all
+ 1940  clear
+ 1941  k get pods
+ 1942  k delete pods --all
+ 1943  clear
+ 1944  k get pods
+ 1945  clear
+ 1946  ls
+ 1947  cd raman
+ 1948  ls
+ 1949  vi rdeploy.yml
+ 1950  clear
+ 1951  cat rdeploy.yml
+ 1952  clear
+ 1953  cat rdeploy
+ 1954  cat rdeploy.yml
+ 1955  k get deplo
+ 1956  k get deploy
+ 1957  k get rs
+ 1958  k create -f rdeploy.yml --record=true
+ 1959  k rollout status deploy nginx
+ 1960  k get deploy
+ 1961  k get rs
+ 1962  vi rdeploy.yml
+ 1963  k edit deploy
+ 1964  vi rdeploy.yml
+ 1965  k create -f rdeploy.yml --record=true
+ 1966  k apply -f rdeploy.yml --record=true
+ 1967  k rollout status deploy nginx
+ 1968  k get deploy
+ 1969  k get rs
+ 1970  k rollout history deploy nginx
+ 1971  k describe deploy | grep -i image
+ 1972  vi rdeploy.yml
+ 1973  k apply -f rdeploy.yml --record=true
+ 1974  k rollout status deploy nginx
+ 1975  clear
+ 1976  k rollout history deploy nginx
+ 1977  k describe deploy | grep -i image
+ 1978  k rollout status deploy nginx
+ 1979  k get rs
+ 1980  k rollout undo deploy nginx --to-revision=1
+ 1981  k get rs
+ 1982  k describe deploy | grep -i image
+ 1983  k rollout undo deploy nginx --to-revision=2
+ 1984  k describe deploy | grep -i image
+ 1985  k get rs
+ 1986  vi rdeploy.yml
+ 1987  k api-resources
+ 1988  cat rdeploy.yml
+ 1989  clear
+ 1990  cat rdeploy.yml
+
+
+```
