@@ -1753,3 +1753,123 @@ spec:
 
 
 ```
+cm :
+
+
+```
+
+root@raman-kube-master:~/raman# cat cmpod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cmprod
+spec:
+  containers:
+  - name: mypod
+    image: nginx
+    volumeMounts:
+    - name: cmvol
+      mountPath: "/usr/share/nginx/html"
+  volumes:
+  - name: cmvol
+    configMap:
+      # Provide the name of the ConfigMap you want to mount.
+      name: dev.cmap
+      # An array of keys from the ConfigMap to create as files
+      items:
+      - key: dev.html
+        path: index.html
+root@raman-kube-master:~/raman# cat cmpod2.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cmprod2
+spec:
+  containers:
+  - name: mypod
+    image: nginx
+    volumeMounts:
+    - name: cmvol
+      mountPath: "/usr/share/nginx/html"
+  volumes:
+  - name: cmvol
+    configMap:
+      # Provide the name of the ConfigMap you want to mount.
+      name: prod.cmap
+      # An array of keys from the ConfigMap to create as files
+      items:
+      - key: prod.html
+        path: index.html
+
+
+
+
+
+echo "hello from prod" > prod.html
+ 2160  ls
+ 2161  echo "hello from dev" > dev.html
+ 2162  ls
+ 2163  k get cm
+ 2164  k create cm -h
+ 2165  clear
+ 2166  k create cm prod.cmap --from-file prod.html
+ 2167  k get cm
+ 2168  k describe cm prod.cmap
+ 2169  k create cm dev.cmap --from-file dev.html
+ 2170  k get cm
+ 2171  clear
+ 2172  vi cmpod.yml
+ 2173  k get cm
+ 2174  vi cmpod.yml
+ 2175  k create -f cmpod.yml
+ 2176  k get pods
+ 2177  k expose pod cmprod --name cmprodsvc --type NodePort --port 80 --target-port 80
+ 2178  k label pod cmprod "env=prod"
+ 2179  k expose pod cmprod --name cmprodsvc --type NodePort --port 80 --target-port 80 --selctor "env=prod"
+ 2180  k expose pod cmprod --name cmprodsvc --type NodePort --port 80 --target-port 80 --selctor env=prod
+ 2181  k expose pod cmprod --name cmprodsvc --type NodePort --port 80 --target-port 80 --selector env=prod
+ 2182  clear
+ 2183  k get svc
+ 2184  k get pods
+ 2185  k get pods -o wide
+ 2186  ls
+ 2187  vi cmpod.yml
+ 2188  k apply -f cmpod.yml
+ 2189  vi cmpod.yml
+ 2190  clear
+ 2191  k get pods
+ 2192  k delete pod cmprod
+ 2193  ls
+ 2194  vi cmpod.yml
+ 2195  k create -f cmpod.yml
+ 2196  k get pods
+ 2197  k label pod cmprod "env=prod"
+ 2198  vi cmpod.yml
+ 2199  k apply -f cmpod.yml
+ 2200  clear
+ 2201  ls
+ 2202  cat cmpod.yml
+ 2203  vi cmpod.yml
+ 2204  clear
+ 2205  cat cmpod.yml
+ 2206  vi cm pod2.yml
+ 2207  vi cmpod2.yml
+ 2208  k apply -f cmpod.yml
+ 2209  ls
+ 2210  vi cmprod2.html
+ 2211  ls
+ 2212  vi cmpod2.yml
+ 2213  k apply -f cmpod2.yml
+ 2214  k get pods
+ 2215  k label pod cmprod2 env=prod
+ 2216  k get svc
+ 2217  k describe svc cmprodsvc
+ 2218  k get pods -o wide
+ 2219  clear
+ 2220  ls
+ 2221  cat cmpod.yml
+ 2222  cat cmpod2.yml
+
+
+
+```
