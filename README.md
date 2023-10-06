@@ -1622,3 +1622,134 @@ subjects:
 
 ```
 
+secrets :
+
+```
+
+username : cmFtYW5raGFubmEK
+
+password : cmFtYW5raGFubmExMjMK
+
+root@raman-kube-master:~/raman# cat secret.yml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: raman-secret
+type: opaque
+data:
+  username: cmFtYW5raGFubmEK
+  password: cmFtYW5raGFubmExMjMK
+
+
+
+
+
+root@raman-kube-master:~/raman# cat secretpod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secretpod1
+spec:
+  containers:
+  - name: mypod
+    image: redis
+    volumeMounts:
+    - name: vol1
+      mountPath: "/tmp/creds"
+      readOnly: true
+  volumes:
+  - name: vol1
+    secret:
+      secretName: raman-secret
+root@raman-kube-master:~/raman# cat secretpod2.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secretpod2
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: SECRET_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: raman-secret
+          key: username
+    - name: SECRET_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: raman-secret
+          key: password
+
+
+
+
+
+
+
+ k get pods
+ 2096  k get secrets
+ 2097  clear
+ 2098  k get secrets
+ 2099  clear
+ 2100  ls
+ 2101  echo 'ramankhanna' | base64
+ 2102  echo 'ramankhanna123' | base64
+ 2103  clear
+ 2104  vi secret.yml
+ 2105  k get secrets
+ 2106  k create -f secret.yml
+ 2107  k get secret
+ 2108  k describe secret raman-secret
+ 2109  ls
+ 2110  cat service.yml
+ 2111  clear
+ 2112  cat raman-secret.yml
+ 2113  cat raman-secret.yaml
+ 2114  ls
+ 2115  cat secret.yaml
+ 2116  cat secret.yml
+ 2117  k get secret
+ 2118  rm -rf secret.yml
+ 2119  clear
+ 2120  k get secret
+ 2121  vi secretpod.yml
+ 2122  ls
+ 2123  k create -f secretpod.yml
+ 2124  k get pods
+ 2125  k logs -f secretpod1
+ 2126  k get pods
+ 2127  clear
+ 2128  k get pods
+ 2129  k delete -f secretpod.yml
+ 2130  clear
+ 2131  vi secretpod.yml
+ 2132  k get secrets
+ 2133  vi secretpod.yml
+ 2134  k create -f secretpod.yml
+ 2135  k get pods
+ 2136  k exec -it secretpod1 -- /bin/bash
+ 2137  clear
+ 2138  k get secrets
+ 2139  k describe raman-secret
+ 2140  k describe secret raman-secret
+ 2141  ls
+ 2142  vi secretpod2.yml
+ 2143  k create -f secretpod2.yml
+ 2144  k get pods
+ 2145  k exec -it secretpod2 echo $SECRET_USERNAME
+ 2146  k exec pod -it secretpod2 echo $SECRET_USERNAME
+ 2147  k exec -it secretpod2 -- echo $SECRET_USERNAME
+ 2148  cat secretpod2.yml
+ 2149  k exec pod -it secretpod2 -- /bin/bash
+ 2150  k exec -it secretpod2 -- /bin/bash
+ 2151  clear
+ 2152  ls
+ 2153  cat secretpod.yml
+ 2154  cat secretpod2.yml
+
+
+
+
+```
