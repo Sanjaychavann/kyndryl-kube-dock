@@ -1530,3 +1530,70 @@ k delete deploy --all
 
 
 ```
+
+
+dashboard :
+
+
+```
+
+k delete deploy --all
+ 1997  clear
+ 1998  k get pods
+ 1999  clear
+ 2000  k get pods -kube-system
+ 2001  k get pods -n kube-system
+ 2002  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+ 2003  clear
+ 2004  k get ns
+ 2005  k get all -n kubernetes-dashboard
+ 2006  k edit deploy kubernetes-dashboard  -n kubernetes-dashboard
+ 2007  k edit svc kubernetes-dashboard -n kubernetes-dashboard
+ 2008  k edit deploy kubernetes-dashboard  -n kubernetes-dashboard
+ 2009  k edit svc kubernetes-dashboard -n kubernetes-dashboard
+ 2010  clear
+ 2011  k describe svc kubernetes-dashboard -n kubernetes-dashboard
+ 2012  k get pods -o wide -n kubernetes-dashboard
+ 2013  clear
+ 2014* k get
+ 2015  k get roles -o wide -n kubernetes-dashboard
+ 2016  k desribe role -n kubernetes-dashboard
+ 2017  k describe role -n kubernetes-dashboard
+ 2018  k desribe sa -n kubernetes-dashboard
+ 2019  k describe sa -n kubernetes-dashboard
+ 2020  k describe rolebinding -n kubernetes-dashboard
+ 2021  git clone https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy
+ 2022  git clone https://raw.githubusercontent.com/kubernetes/dashboard/
+ 2023  git clone https://raw.githubusercontent.com/
+ 2024  clear
+ 2025  k get secrets -n kubernetes-dashboard
+ 2026  k describe secret kubernetes-dashboard-token-wkwjc  -n kubernetes-dashboard
+ 2027  clear
+ 2028  k get roles  -n kubernetes-dashboard
+ 2029  k get sa -n kubernetes-dashboard
+ 2030  k get rolebinding -n kubernetes-dashboard
+ 2031  k describe rolebinding -n kubernetes-dashboard
+ 2032  k describe role -n kubernetes-dashboard
+ 2033  clear
+ 2034  ls
+ 2035  vi admin.yml
+ 2036  k create admin.yml
+ 2037  k create -f admin.yml
+ 2038  k get sa -n kubernetes-dashboard
+ 2039  k get roles
+ 2040  k get roles -A
+ 2041  clear
+ 2042  k get clusterroles
+ 2043  clear
+ 2044  k describe clusterroles cluster-admin
+ 2045  vi rolebind.yml
+ 2046  k create -f rolebind.yml
+ 2047  clear
+ 2048  k get sa -n kubernetes
+ 2049  k get sa -n kubernetes-dashboard
+ 2050  k get secrets -n kubernetes-dashboard
+ 2051  k describe secret -n kubernetes-dashboard admin-user-token-x8mh9
+ 2052  clear
+
+
+```
