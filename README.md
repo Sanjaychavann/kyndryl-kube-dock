@@ -2031,3 +2031,35 @@ k get nodes
 
 
 ```
+
+
+
+pv-pvc :
+
+
+```
+
+ git clone https://github.com/ramannkhanna2/Azure-PV-PVC-fileshare.git
+  302  ls
+  303  cd Azure-Azure-PV-PVC-fileshare
+  304  cd Azure-PV-PVC-fileshare
+  305  ls
+  306  vi pv.yaml
+  307  kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=ramanscc --from-literal=azurestorageaccountkey=Qeeu2FNylBtPa09gaaQfMN7pz9gaXLa+70HDSxdgG1jbO3z+mfULNaFWlR2DKbklCVf7xzSsHPYt+AStPE20iA==
+  308  vi pv.yaml
+  309  k create -f pv.yaml
+  310  k get pv
+  311  vi pvc.yaml
+  312  k create -f pvc.yaml
+  313  k get pv
+  314  vi pod.yaml
+  315  k create -f pod.yaml
+  316  k get pods
+  317  k exec -it mypod -- /bin/bash
+  318  vi pod.yaml
+  319  k create -f pod.yaml
+  320  k get pods
+  321  k exec -it mypod2 -- /bin/bash
+  322  k delete pods --all
+
+```
