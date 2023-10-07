@@ -1873,3 +1873,104 @@ echo "hello from prod" > prod.html
 
 
 ```
+
+
+
+end2end aks :
+
+```
+
+ alias k=kubectl
+  200  k ge nodes
+  201  k get nodes
+  202  az login
+  203  clear
+  204  az account set --subscription afc6eb08-c907-4ffa-9778-3de7391c2d4b
+  205  az aks get-credentials --resource-group raman-sg --name raman-aks
+  206  ls -a
+  207  cd .kube
+  208  ls
+  209  ca config
+  210  cat config
+  211  clear
+  212  ls
+  213  cd ..
+  214  ls
+  215  az aks get-credentials --resource-group raman-sg --name raman-aks
+  216  ls
+  217  cd .kube/
+  218  ls
+  219  cat config
+  220  clear
+  221  k config view
+  222  k config get-context
+  223  k config get-contexts
+  224  clear
+  225  cd ..
+  226  ls
+  227  k get pods
+  228  k get nodes
+  229  clear
+  230  k get nodes
+  231  k get pods
+  232  clear
+  233  k get nodes
+  234  clear
+  235  ls
+  236  git clone https://github.com/ramannkhanna2/k8s_end2end_front-backend.git
+  237  ls
+  238  cd k8s_end2end_front-backend
+  239  ls
+  240  clear
+  241  ls
+  242  k create -f mongodb_secrets.yml
+  243  k get all
+  244  k get secrets
+  245  ls
+  246  k create -f mongo_db.yml
+  247  k get all
+  248  clear
+  249  ls
+  250  k create -f mongo-cofigmap.yml
+  251  k get cm
+  252  k describe cm
+  253  ls
+  254  vi mongo-cofigmap.yml
+  255  vi mongo-express.yml
+  256  clear
+  257  vi mongo-express.yml
+  258  clear
+  259  cat /etc/os-release
+  260  clear
+  261  hostnamectl set-hostname env
+  262  bash
+  263  clear
+  264  ls
+  265  alias k=kubectl
+  266  k get all
+  267  ls
+  268  cd k8s_end2end_front-backend
+  269  ls
+  270  vi mongo-express.yml
+  271  clear
+  272  k get pods
+  273  k get svc
+  274  ls
+  275  k create -f mongo-express.yml
+  276  k get pods
+  277  k get svc
+  278  ls
+  279  k get pods
+  280  k exec -it mongo-express-5857768959-rpmtx -- /bin/bash
+  281  clear
+  282  k get pods
+  283  k logs -f mongo-express-5857768959-rpmtx
+  284  k get pods
+  285  k logs mongodb-deployment-7b476c76cd-f5nwc
+  286  clear
+  287  k get svc
+  288  k get pods
+  289  k delete deploy --all
+  290  k delete svc --all
+
+```
