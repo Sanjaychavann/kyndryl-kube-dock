@@ -1974,3 +1974,60 @@ end2end aks :
   290  k delete svc --all
 
 ```
+
+
+helm-prom-grafan helm stack :
+
+```
+
+k get nodes
+ 2001  helm
+ 2002  curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+ 2003  chmod 700 get_helm.sh
+ 2004  ./get_helm.sh
+ 2005  clear
+ 2006  helm
+ 2007  clear
+ 2008  k create -n monitoring
+ 2009  k create -ns monitoring
+ 2010  k get ns
+ 2011  k create ns monitoring
+ 2012  k get ns
+ 2013  clear
+ 2014  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+ 2015  helm repo list
+ 2016  helm repo update
+ 2017  clear
+ 2018  k get all -n monitoring
+ 2019  k get avc -n monitoring
+ 2020  k get svc -n monitoring
+ 2021  clear
+ 2022  helm install raman-prom-grafana prometheus-community/kube-prometheus-stack -n monitoring
+ 2023  k get all -n monitoring
+ 2024  clear
+ 2025  k get all -n monitoring
+ 2026  clear
+ 2027  k get pods -o wide
+ 2028  k get pods -o wide -n monitoring
+ 2029  k get svc -o wide -n monitoring
+ 2030  clear
+ 2031  k get svc  -n monitoring
+ 2032  k edit svc raman-prom-grafana -n monitoring
+ 2033  k get svc  -n monitoring
+ 2034  k get pods -o wide
+ 2035  k get pods -o wide -n monitoring
+ 2036  clear
+ 2037  k exec -it raman-prom-grafana-7765cdc78d-ptfgr -- /bin/bash
+ 2038  k get pods -o wide -n monitoring
+ 2039  k exec -it raman-prom-grafana-7765cdc78d-ptfgr -n monitoring -- /bin/bash
+ 2040  k get secrets -n monitoring
+ 2041  k describe secret raman-prom-grafana-token-5pztw  -n monitoring
+ 2042  clear
+ 2043  k get pods -o wide -n monitoring
+ 2044  kubectl exec -it raman-prom-grafana-7765cdc78d-ptfgr -n monitoring -- /bin/sh -c "echo $(kubectl get secret --namespace monitoring prometheus-grafana -o jsonpath='{.data.admin-user}' | base64 --decode) && echo $(kubectl get secret --namespace monitoring prometheus-grafana -o jsonpath='{.data.admin-password}' | base64 --decode)"
+ 2045  k get secrets -n monitoring
+ 2046  kubectl exec -it raman-prom-grafana-7765cdc78d-ptfgr -n monitoring -- /bin/sh -c "echo $(kubectl get secret --namespace monitoring raman-prom-grafana -o jsonpath='{.data.admin-user}' | base64 --decode) && echo $(kubectl get secret --namespace monitoring raman-prom-grafana -o jsonpath='{.data.admin-password}' | base64 --decode)"
+ 2047  k get pods -o wide -n monitoring
+
+
+```
